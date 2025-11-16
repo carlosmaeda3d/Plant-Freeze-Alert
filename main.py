@@ -10,7 +10,7 @@ longitude = -81.71  # West is negative
 
 # Config Info
 config = configparser.ConfigParser()
-config.read()
+config.read(r'D:\Program Files (x86)\PyCharm Projects\Plant-Freeze Alert\config.ini')
 
 from_email = config['EMAIL']['from_email']
 to_email = config['EMAIL']['from_email']
@@ -74,6 +74,6 @@ for period in periods[:12]:
 # Report lowest temp if any are below 70
 if below_70:
     lowest_temp, time = min(below_70, key=lambda x: x[0])
-    #send_email(f'Bring Orchids inside tonight. Lowest temp: {lowest_temp} F at {time}')
+    send_email(f'Bring Orchids inside tonight. Lowest temp: {lowest_temp} F at {time}')
     print(f'\nBring plants inside! It will be below 70 F!')
     print(f'Lowest temperature: {lowest_temp} F at {time}')
